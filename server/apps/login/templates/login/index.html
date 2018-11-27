@@ -2,7 +2,6 @@
 <html lang="en">
   <head>
     <title>Login</title>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -10,15 +9,58 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   </head>
   <body>
-    <div class="container">
-        <div class="row">
-            <div class="col justify-content-left">
-                <h2>H & H</h2>
-            </div>
+    <div class="container p-3">
+      <div class="row p-2">
+        <div class="col justify-content-left">
+          <h2>H & H</h2>
         </div>
-        <div>
-
-        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-4 p-2">
+        <h2>Login</h2>
+        <form action="/login/" method="POST">
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" name="username" class="form-control" placeholder="Username">
+          </div>
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="text" name="password" class="form-control" placeholder="Password">
+          </div>
+          <button type="submit" class="btn btn-outline-success">Login</button>
+        </form>
+      </div>
+      <div class="col-4 p-2">
+        <h2>Register</h2>
+        <form action="/register/" method="POST">
+        {% csrf_token %}
+          <div class="form-group">
+            <label for="first_name">First Name</label>
+            <input type="text" name="first_name" class="form-control" placeholder="First Name">
+          </div>
+          <div class="form-group">
+            <label for="last_name">Last Name</label>
+            <input type="text" name="last_name" class="form-control" placeholder="Last Name">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" name="email" class="form-control" placeholder="Email">
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" name="password" aria-describedby="password_help" placeholder="Password">
+            <small id="password_help" class="form-text text-muted">Must be at least 8 characters long</small>
+          </div>
+          <div class="form-group">
+            <label for="confirm_password">Confirm Password</label>
+            <input type="password" class="form-control" name="confirm_password" aria-describedby="confirm_password_help" placeholder="Confirm Password">
+            <small id="confirm_password_help" class="form-text text-muted">Retype your above password</small>
+          </div>
+          <button type="submit" class="btn btn-outline-primary">Register</button>
+        </form>
+      </div>
     </div>
   </body>
 </html>
