@@ -5,5 +5,5 @@ from django.shortcuts import render, redirect
 
 
 # Create your views here.
-def login(request):
+def index(request):
     return render(request, "player/index.html")
