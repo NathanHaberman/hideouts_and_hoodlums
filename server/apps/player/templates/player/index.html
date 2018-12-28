@@ -16,6 +16,8 @@
         </div>
       </div>
     </div>
+
+    <!-- Login -->
     <div class="row justify-content-center">
       <div class="col-4 p-2">
         <h2>Login</h2>
@@ -32,31 +34,84 @@
           <button type="submit" class="btn btn-outline-success">Login</button>
         </form>
       </div>
+
+      <!-- Register -->
       <div class="col-4 p-2">
         <h2>Register</h2>
         <form action="/register/" method="POST">
         {% csrf_token %}
           <div class="form-group">
             <label for="first_name">First Name</label>
+          {% if first_name_error %}
+            <input type="text" name="first_name" class="form-control" placeholder="First Name" invalid>
+            <div class="invalid-feedback">
+              First name is required and must be less then 75 characters
+            </div>
+          {% else %}
             <input type="text" name="first_name" class="form-control" placeholder="First Name">
+          {% endif %}
           </div>
+
           <div class="form-group">
             <label for="last_name">Last Name</label>
+          {% if last_name_error %}
+            <input type="text" name="last_name" class="form-control" placeholder="Last Name" invalid>
+            <div class="invalid-feedback">
+              Last name is required and must be less then 75 characters
+            </div>
+          {% else %}
             <input type="text" name="last_name" class="form-control" placeholder="Last Name">
+          {% endif %}
           </div>
+
           <div class="form-group">
             <label for="email">Email</label>
+          {% if email_error %}
+            <input type="email" name="email" class="form-control" placeholder="Email" invalid>
+            <div class="invalid-feedback">
+              Email is required and must be less then 75 characters
+            </div>
+          {% else %}
             <input type="email" name="email" class="form-control" placeholder="Email">
+          {% endif %}
           </div>
+
+          <div class="form-group">
+            <label for="username">Username:</label>
+          {% if username_error %}
+            <input type="text" name="username" class="form-control" placeholder="Username" invalid>
+            <div class="invalid-feedback">
+              Username is required and must be less then 75 characters
+            </div>
+          {% else %}
+            <input type="text" name="username" class="form-control" placeholder="Username">
+          {% endif %}
+          </div>
+
           <div class="form-group">
             <label for="password">Password</label>
+          {% if password_error %}
+            <input type="password" class="form-control" name="password" aria-describedby="password_help" placeholder="Password" invalid>
+            <div class="invalid-feedback">
+              Password must be at least 8 characters
+            </div>
+          {% else %}
             <input type="password" class="form-control" name="password" aria-describedby="password_help" placeholder="Password">
             <small id="password_help" class="form-text text-muted">Must be at least 8 characters long</small>
+          {% endif %}
           </div>
+
           <div class="form-group">
             <label for="confirm_password">Confirm Password</label>
+          {% if confirm_password_error %}
+            <input type="password" class="form-control" name="confirm_password" aria-describedby="confirm_password_help" placeholder="Confirm Password" invalid>
+            <div class="invalid-feedback">
+              Passwords do not match
+            </div>
+          {% else %}
             <input type="password" class="form-control" name="confirm_password" aria-describedby="confirm_password_help" placeholder="Confirm Password">
             <small id="confirm_password_help" class="form-text text-muted">Retype your above password</small>
+          {% endif %}
           </div>
           <button type="submit" class="btn btn-outline-primary">Register</button>
         </form>

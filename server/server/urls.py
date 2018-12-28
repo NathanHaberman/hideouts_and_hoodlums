@@ -17,8 +17,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 
 urlpatterns = [
-    url(r'^/', include("apps.player.urls")),
-    url(r'^player/', include('apps.player.urls')),
+    url(r'^', include("apps.player.urls")),
     url(r'^hideout/', include('apps.hideout.urls')),
     url(r'^admin/', admin.site.urls),
 ]

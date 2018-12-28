@@ -6,7 +6,14 @@ from ..player.models import Character
 from django.contrib.auth.models import User
 
 
-# Create your models here.
+class GameManager(models.Manager):
+    def validator(self, post_data):
+        errors = []
+        if len(post_data['name']) > 75 | len(post_data['name']) < 1:
+            errors.append('name')
+        return errors
+        
+
 class Game(models.Model):
     name = models.CharField(max_length=75)
     dm = models.ForeignKey(User, default=1, on_delete=models.CASCADE)
