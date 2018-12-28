@@ -2,15 +2,15 @@
 from __future__ import unicode_literals
 
 from django.db import models
-# from apps.player import models
+from ..player.models import Character
 from django.contrib.auth.models import User
 
 
 # Create your models here.
 class Game(models.Model):
     name = models.CharField(max_length=75)
-    # dm_id = models.ForeignKey('User', related_name='id', on_delete=models.CASCADE)
-    # character_id = models.ManyToManyField(Character)
+    dm = models.ForeignKey(User, default=1, on_delete=models.CASCADE)
+    character = models.ManyToManyField(Character)
     level = models.IntegerField(default=1)
     funds = models.IntegerField(default=0)
     income = models.IntegerField(default=0)

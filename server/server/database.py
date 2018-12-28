@@ -1,6 +1,9 @@
 # To start the server:
 # sudo systemctrl start postgres
 
+# To access the database:
+# sudo -u postgres psql
+
 database_info = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',

@@ -13,4 +13,4 @@ class Character(models.Model):
     specialty = models.IntegerField()
     specialty_level = models.IntegerField(default=1)
     money = models.IntegerField()
-    # user_id = models.ForeignKey('User', related_name='id', on_delete=models.CASCADE)
+    user = models.ForeignKey(User, default=1, on_delete=models.CASCADE)
