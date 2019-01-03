@@ -31,21 +31,22 @@ class Character(models.Model):
     money = models.IntegerField()
     user = models.ForeignKey(User, default=1, on_delete=models.CASCADE)
 
-class UserManager(models.Manager):
-    def validator(self, post_data):
-        errors = []
-        if len(post_data['first_name']) > 75 | len(post_data['first_name']) < 1:
-            errors.append('first_name')
-        if len(post_data['last_name']) > 75 | len(post_data['last_name']) < 1:
-            errors.append('last_name')
-        if len(post_data['email']) > 75 | len(post_data['email']) < 1:
-            errors.append('email')
-        if len(post_data['username']) > 75 | len(post_data['username']) < 1:
-            errors.append('username')
-        if (post_data['password'] == post_data['confirm_password']):
-            if len(post_data['password']) > 75 | len(post_data['password']) < 8:
-                errors.append('password')
-        else:
-            errors.append['confirm_password']
-        return errors
-        
+# class UserManager(models.Manager):
+#     def validator(self, post_data):
+#         errors = []
+#         if len(post_data['first_name']) > 75 | len(post_data['first_name']) < 1:
+#             errors.append('first_name')
+#         if len(post_data['last_name']) > 75 | len(post_data['last_name']) < 1:
+#             errors.append('last_name')
+#         if len(post_data['email']) > 75 | len(post_data['email']) < 1:
+#             errors.append('email')
+#         if len(post_data['username']) > 75 | len(post_data['username']) < 1:
+#             errors.append('username')
+#         if (post_data['password'] == post_data['confirm_password']):
+#             if len(post_data['password']) > 75 | len(post_data['password']) < 8:
+#                 errors.append('password')
+#         else:
+#             errors.append['confirm_password']
+#         return errors
+
+# User.add_to_class('UserManager', UserManager())

@@ -42,7 +42,7 @@
         {% csrf_token %}
           <div class="form-group">
             <label for="first_name">First Name</label>
-          {% if first_name_error %}
+          {% if first_name %}
             <input type="text" name="first_name" class="form-control" placeholder="First Name" invalid>
             <div class="invalid-feedback">
               First name is required and must be less then 75 characters
@@ -54,7 +54,7 @@
 
           <div class="form-group">
             <label for="last_name">Last Name</label>
-          {% if last_name_error %}
+          {% if last_name %}
             <input type="text" name="last_name" class="form-control" placeholder="Last Name" invalid>
             <div class="invalid-feedback">
               Last name is required and must be less then 75 characters
@@ -66,7 +66,7 @@
 
           <div class="form-group">
             <label for="email">Email</label>
-          {% if email_error %}
+          {% if email %}
             <input type="email" name="email" class="form-control" placeholder="Email" invalid>
             <div class="invalid-feedback">
               Email is required and must be less then 75 characters
@@ -78,7 +78,7 @@
 
           <div class="form-group">
             <label for="username">Username:</label>
-          {% if username_error %}
+          {% if username %}
             <input type="text" name="username" class="form-control" placeholder="Username" invalid>
             <div class="invalid-feedback">
               Username is required and must be less then 75 characters
@@ -90,7 +90,7 @@
 
           <div class="form-group">
             <label for="password">Password</label>
-          {% if password_error %}
+          {% if password %}
             <input type="password" class="form-control" name="password" aria-describedby="password_help" placeholder="Password" invalid>
             <div class="invalid-feedback">
               Password must be at least 8 characters
@@ -103,7 +103,7 @@
 
           <div class="form-group">
             <label for="confirm_password">Confirm Password</label>
-          {% if confirm_password_error %}
+          {% if confirm_password %}
             <input type="password" class="form-control" name="confirm_password" aria-describedby="confirm_password_help" placeholder="Confirm Password" invalid>
             <div class="invalid-feedback">
               Passwords do not match

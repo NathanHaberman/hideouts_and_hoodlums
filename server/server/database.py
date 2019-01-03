@@ -1,5 +1,5 @@
 # To start the server:
-# sudo systemctrl start postgres
+# sudo systemctrl start postgresql
 
 # To access the database:
 # sudo -u postgres psql
