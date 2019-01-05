@@ -10,7 +10,7 @@ from models import *
 # Create your views here.
 def index(request):
     if 'active_user' in request.session:
-        return redirect('/user/' + request.session['active_user'])
+        return redirect('/user/' + str(request.session['active_user']))
     else:
         errors = messages.get_messages(request)
         if len(errors) > 0:
@@ -67,5 +67,16 @@ def login(request):
     messages.error(request, 'login_username')
     return redirect('/')
 
+def logout(request):
+    if 'active_user' in request.session:
+        del request.session['active_user']
+    return redirect('/')
+
 def profile(request, user_id):
-    return
+    if 'active_user' in request.session:
+        if request.session['active_user'] == user_id:
+            
+            #TODO: build profile here
+
+            return render(request, "player/profile.html")
+    return redirect( '/')
