@@ -53,6 +53,7 @@ def register(request):
     else:
         return redirect('/')
 
+
 def login(request):
     if len(request.POST['username']) > 0:
         user = User.objects.filter(username=request.POST['username'])
@@ -67,16 +68,40 @@ def login(request):
     messages.error(request, 'login_username')
     return redirect('/')
 
+
 def logout(request):
     if 'active_user' in request.session:
         del request.session['active_user']
     return redirect('/')
 
+
 def profile(request, user_id):
     if 'active_user' in request.session:
         if request.session['active_user'] == user_id:
-            
-            #TODO: build profile here
+            user = User.objects.get(id=request.session['active_user'])
+            characters = Character.objects.filter(user=request.session['active_user'])
+            if len(characters) == 0:
+                return redirect('character/new')
 
-            return render(request, "player/profile.html")
-    return redirect( '/')
+            # TODO: Jump to hideout, if apart of only one
+
+            context = {
+                'user': user
+            }
+            return render(request, 'player/profile.html', context)
+    return redirect('/')
+
+
+def new_character(request):
+    if 'active_user' in request.session:
+        return render(request, 'player/new_character')
+    return redirect('/')
+
+
+def create_new_character(request):
+    if request.method == POST:
+
+        # TODO Validation and Create New Character
+
+        return redirect('player/' + str(request.session['active_user']))
+    return redirect('character/new')
