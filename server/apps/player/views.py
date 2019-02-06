@@ -10,7 +10,7 @@ from models import *
 # Create your views here.
 def index(request):
     if 'active_user' in request.session:
-        return redirect('/user/' + str(request.session['active_user']))
+        return redirect('/player/' + str(request.session['active_user']))
     else:
         errors = messages.get_messages(request)
         if len(errors) > 0:
@@ -49,7 +49,7 @@ def register(request):
             user.set_password(request.POST['password'])
             user.save()
             request.session['active_user'] = user.id
-            return redirect('/user/' + str(user.id))
+            return redirect('/player/' + str(user.id))
     else:
         return redirect('/')
 
@@ -61,7 +61,7 @@ def login(request):
             user = User.objects.get(username=request.POST['username'])
             if user.check_password(request.POST['password']):
                 request.session['active_user'] = user.id
-                return redirect('/user/' + str(user.id))
+                return redirect('/player/' + str(user.id))
             else:
                 messages.error(request, 'login_password')
                 return redirect('/')

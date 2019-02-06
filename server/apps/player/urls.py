@@ -7,6 +7,6 @@ urlpatterns = [
     url(r'^register/$', register),
     url(r'^login/$', login),
     url(r'^logout/$', logout),
-    url(r'^player/(?P<user_id>[1-9][0-9]*)/$', profile)
-    url(r'^character/new', new_character)
+    url(r'^player/(?P<user_id>[1-9][0-9]*)/$', profile),
+    url(r'^character/new', new_character),
 ]
