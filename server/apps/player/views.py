@@ -98,6 +98,7 @@ def new_character(request):
 def create_new_character(request):
     if request.method == POST:
 
+        # TODO Validation on HTML
         # TODO Validation and Create New Character
 
         return redirect('player/' + str(request.session['active_user']))
