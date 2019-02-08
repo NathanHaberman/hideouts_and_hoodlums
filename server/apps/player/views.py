@@ -77,14 +77,11 @@ def logout(request):
 
 def profile(request, user_id):
     if 'active_user' in request.session:
-        if request.session['active_user'] == user_id:
+        if request.session['active_user'] == int(user_id):
             user = User.objects.get(id=request.session['active_user'])
             characters = Character.objects.filter(user=request.session['active_user'])
             if len(characters) == 0:
-                return redirect('character/new')
-
-            # TODO: Jump to hideout, if apart of only one
-
+                return redirect('player/character/new')
             context = {
                 'user': user
             }
@@ -94,7 +91,7 @@ def profile(request, user_id):
 
 def new_character(request):
     if 'active_user' in request.session:
-        return render(request, 'player/new_character')
+        return render(request, 'player/new_character.html')
     return redirect('/')
 
 

@@ -10,27 +10,37 @@
     </head>
     <body>
         <!-- Nav Bar -->
-        <div class="row justify-content-between">
+        <div class="row justify-content-between p-5">
             <div class="col-3">H&H</div>
-            <div class="col-6 row">
-                <div class="col-3">
-                    <a href="" class="btn btn-outline-primary">Hideout</a>
-                </div>
-                <div class="col-3">
-                    <a href="" class="btn btn-outline-primary">Character</a>
-                </div>
-                <div class="col-3">
-                    <a href="" class="btn btn-outline-warning">User Profile</a>
-                </div>
-                <div class="col-3">
-                    <a href="/logout/" class="btn btn-outline-danger">Logout</a>
-                </div>
+            <div class="col-6 row justify-content-end">
+                    <a href="" class="btn btn-outline-primary ml-2">Hideout</a>
+                    <a href="" class="btn btn-outline-primary ml-2">Character</a>
+                    <a href="" class="btn btn-outline-warning ml-2">User Profile</a>
+                    <a href="/logout/" class="btn btn-outline-danger ml-2">Logout</a>
             </div>
         </div>
         <!-- End of Nav Bar -->
         <div class="row justify-content-center">
-            <div class="col-6">
-                <h2>Create New Character</h2>
+            <div class="col-4">
+                <h2 class="p-3">Specialties</h2>
+                <h4>Mastermind</h4>
+                <p class="text-secondary">What's the plan? Where are the exits? How many gaurds are there?... You know.</p>
+                <p class="text-muted"><em>INT Bonus equal to level</em></p>
+                <h4>Enforcer</h4>
+                <p class="text-secondary">What's the plan? Where are the exits? How many gaurds are there?... You know.</p>
+                <p class="text-muted"><em>STR Bonus equal to level</em></p>
+                <h4>Cat Burglar</h4>
+                <p class="text-secondary">What's the plan? Where are the exits? How many gaurds are there?... You know.</p>
+                <p class="text-muted"><em>DEX Bonus equal to level</em></p>
+                <h4>Lookout</h4>
+                <p class="text-secondary">What's the plan? Where are the exits? How many gaurds are there?... You know.</p>
+                <p class="text-muted"><em>WIS Bonus equal to level</em></p>
+                <h4>The Decoy</h4>
+                <p class="text-secondary">What's the plan? Where are the exits? How many gaurds are there?... You know.</p>
+                <p class="text-muted"><em>CHA Bonus equal to level</em></p>
+            </div>
+            <div class="col-4">
+                <h2 class="p-3">Create New Character</h2>
                 <form action="character/new" method="post">
                     <div class="form-group">
                         <label for="name">Character's Name</label>
@@ -38,7 +48,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="form-group col-4">
+                        <div class="form-group col-6">
                             <label for="role">Class</label>
                             <select name="role" class="form-control">
                                 <option selected value="0">Choose your class</option>
@@ -57,7 +67,7 @@
                                 <option value="13">Wizard</option>
                             </select>
                         </div>
-                        <div class="form-group col-4">
+                        <div class="form-group col-6">
                             <label for="name">Level</label>
                             <select name="level" class="form-control">
                                 <option selected value="0">How powerful are you?</option>
@@ -83,21 +93,23 @@
                                 <option value="20">20th</option>
                             </select>
                         </div>
-                        <div class="form-group col-4">
-                            <label for="specialty">Specialty</label>
-                            <select name="specialty" class="form-control">
-                                <option selected value="0">What exactly do you do here?</option>
-                                <option value="1">Mastermind</option>
-                                <option value="2">Enforcer</option>
-                                <option value="3">Cat Burglar</option>
-                                <option value="4">Lookout</option>
-                                <option value="5">The Decoy</option>
-                            </select>
-                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="specialty">Specialty</label>
+                        <select name="specialty" class="form-control">
+                            <option selected value="0">What exactly do you do here?</option>
+                            <option value="1">Mastermind</option>
+                            <option value="2">Enforcer</option>
+                            <option value="3">Cat Burglar</option>
+                            <option value="4">Lookout</option>
+                            <option value="5">The Decoy</option>
+                        </select>
+                    </div>
+                    <div class="row justify-content-end">
+                        <a href="/player/character/create" class="btn btn-success">Begin Your Adventure</a>
                     </div>
                 </form>
             </div>
         </div>
-        
     </body>
 </html>
